@@ -1,0 +1,18 @@
+* NGSPICE file created from LPF_DSRT_KEL11.ext - technology: sky130A
+
+.subckt sky130_fd_pr__nfet_01v8_NDDCQ2 B D S G
+X0 S G D B sky130_fd_pr__nfet_01v8 ad=0.58 pd=4.58 as=0.58 ps=4.58 w=2 l=1
+.ends
+
+.subckt sky130_fd_pr__pfet_01v8_5KKSJS B D S G
+X0 S G D B sky130_fd_pr__pfet_01v8 ad=1.16 pd=8.58 as=1.16 ps=8.58 w=4 l=1
+.ends
+
+.subckt LPF_DSRT_KEL11
+XM1 Vb M1/D M1/S M1/G sky130_fd_pr__nfet_01v8_NDDCQ2
+XM2 Vb M2/D M2/S M2/G sky130_fd_pr__nfet_01v8_NDDCQ2
+XM3 Vb M3/D M3/S M3/G sky130_fd_pr__pfet_01v8_5KKSJS
+XM4 Vb M4/D M4/S M4/G sky130_fd_pr__pfet_01v8_5KKSJS
+XM5 Vb M5/D M5/S M5/G sky130_fd_pr__nfet_01v8_NDDCQ2
+.ends
+

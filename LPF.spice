@@ -1,0 +1,25 @@
+** sch_path: /foss/designs/LPF.sch
+.subckt LPF
+
+XR1 Vin net1 0 sky130_fd_pr__res_xhigh_po_0p35 L=263 mult=1
+XC1 net1 0 sky130_fd_pr__cap_mim_m3_1 W=22.4 L=22
+XM1 net2 net1 net3 0 sky130_fd_pr__nfet_01v8 L=1 W=2 nf=1
+XM2 Vout Vout net3 0 sky130_fd_pr__nfet_01v8 L=1 W=2 nf=1
+XM5 net3 Vb 0 0 sky130_fd_pr__nfet_01v8 L=1 W=2 nf=1
+XM3 Vout net2 VDD VDD sky130_fd_pr__pfet_01v8 L=1 W=4 nf=1
+XM4 net2 net2 VDD VDD sky130_fd_pr__pfet_01v8 L=1 W=4 nf=1
+VDD VDD 0 1.8
+Vb Vb 0 0.9
+Vin Vin 0 dc 0.9 ac 1
+**** begin user architecture code
+
+
+.lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+.ac dec 20 1k 10Meg
+.save all
+
+
+**** end user architecture code
+.ends
+.GLOBAL VDD
+.GLOBAL Vb
