@@ -1,0 +1,2 @@
+LPF:Xschem
+LPF_DSRT_KEL11:Magic
